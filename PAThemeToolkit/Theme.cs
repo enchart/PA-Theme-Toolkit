@@ -10,7 +10,7 @@ namespace PAThemeToolkit
     public class Theme
     {
         private static Random random;
-        
+
         static Theme()
         {
             random = new Random();
@@ -30,18 +30,6 @@ namespace PAThemeToolkit
         }
 
         /// <summary>
-        /// Converts RGB color into a Hex format color string.
-        /// </summary>
-        /// <param name="r">Red component (0-255)</param>
-        /// <param name="g">Green component (0-255)</param>
-        /// <param name="b">Blue component (0-255)</param>
-        /// <returns></returns>
-        public static string RGBToHex(int r, int g, int b)
-        {
-            return $"{r:X2}{g:X2}{b:X2}";
-        }
-
-        /// <summary>
         /// The theme's ID. This value is chosen randomly. This field is read-only.
         /// </summary>
         public string ID { get; }
@@ -52,148 +40,147 @@ namespace PAThemeToolkit
         public string Name;
 
         /// <summary>
-        /// The theme's GUI color.
-        /// </summary>
-        public string GUI;
-
-        /// <summary>
         /// The theme's background color.
         /// </summary>
-        public string Background;
+        public Color Background;
+
+        /// <summary>
+        /// The theme's GUI color.
+        /// </summary>
+        public Color GUI;
 
         /// <summary>
         /// The theme's players colors.
         /// </summary>
-        public string[] Players;
+        public Color[] Players;
 
         /// <summary>
         /// The theme's objects colors.
         /// </summary>
-        public string[] Objects;
+        public Color[] Objects;
 
         /// <summary>
         /// The theme's background objects colors.
         /// </summary>
-        public string[] BackgroundObjects;
+        public Color[] BackgroundObjects;
 
         /// <summary>
-        /// Default theme constructor. Name is assigned to "Untitled".
+        /// Default Theme constructor. Name is assigned to "Untitled".
         /// </summary>
         public Theme()
         {
             ID = GenId();
-            Name = "Untitled";
-            Players = new string[4];
-            Objects = new string[9];
-            BackgroundObjects = new string[9];
+            Name = "Unitlted";
+            Players = new Color[4];
+            Objects = new Color[9];
+            BackgroundObjects = new Color[9];
         }
-
 
         /// <summary>
         /// Theme constructor.
         /// </summary>
-        /// <param name="name">Theme name</param>
+        /// <param name="name">Theme name.</param>
         public Theme(string name)
         {
             ID = GenId();
             Name = name;
-            Players = new string[4];
-            Objects = new string[9];
-            BackgroundObjects = new string[9];
+            Players = new Color[4];
+            Objects = new Color[9];
+            BackgroundObjects = new Color[9];
         }
 
         /// <summary>
         /// Theme constructor.
         /// </summary>
-        /// <param name="name">Theme name</param>
-        /// <param name="gui">Theme GUI color</param>
-        /// <param name="background">Theme background color</param>
-        /// <param name="players">Theme players colors</param>
-        /// <param name="objects">Theme objects colors</param>
-        /// <param name="backgroundObjects">Theme background objects colors</param>
-        public Theme(string name, string gui, string background, string[] players, string[] objects, string[] backgroundObjects)
+        /// <param name="name">Theme name.</param>
+        /// <param name="background">Theme background color.</param>
+        /// <param name="gui">Theme GUI color.</param>
+        /// <param name="players">Theme players colors.</param>
+        /// <param name="objects">Theme objects colors.</param>
+        /// <param name="backgroundObjects">Theme background objects colors.</param>
+        public Theme(string name, Color background, Color gui, Color[] players, Color[] objects, Color[] backgroundObjects)
         {
             ID = GenId();
             Name = name;
-            GUI = gui;
             Background = background;
+            GUI = gui;
             Players = players;
             Objects = objects;
             BackgroundObjects = backgroundObjects;
         }
 
         /// <summary>
-        /// Construct a theme with a JSON object.
+        /// Construct a theme prefab with a JSON object.
         /// </summary>
-        /// <param name="json">A JSONNode object</param>
+        /// <param name="json">A JSONNode object.</param>
         public Theme(JSONNode json)
         {
             ID = GenId();
             Name = json["name"];
-            GUI = json["gui"];
-            Background = json["bg"];
+            Background = new Color(json["bg"]);
+            GUI = new Color(json["gui"]);
 
-            Players = new string[4];
+            Players = new Color[4];
             for (int i = 0; i < 4; i++)
             {
-                Players[i] = json["players"][i];
+                Players[i] = new Color(json["players"][i]);
             }
 
-            Objects = new string[9];
+            Objects = new Color[9];
             for (int i = 0; i < 9; i++)
             {
-                Objects[i] = json["objs"][i];
+                Objects[i] = new Color(json["objs"][i]);
             }
 
-            BackgroundObjects = new string[9];
+            BackgroundObjects = new Color[9];
             for (int i = 0; i < 9; i++)
             {
-                BackgroundObjects[i] = json["bgs"][i];
+                BackgroundObjects[i] = new Color(json["bgs"][i]);
             }
         }
 
         /// <summary>
         /// Writes the theme to a file.
         /// </summary>
-        /// <param name="path">A file path</param>
+        /// <param name="path">A file path.</param>
         public void ExportToFile(string path)
         {
             File.WriteAllText(path, ToJson().ToString());
         }
 
+        public override string ToString()
+        {
+            return ToJson().ToString();
+        }
+
         /// <summary>
         /// Gets a JSON object of the theme.
         /// </summary>
-        /// <returns>A JSONNode object</returns>
+        /// <returns>A JSONNode object.</returns>
         public JSONNode ToJson()
         {
             JSONObject json = new JSONObject();
             json["id"] = ID;
             json["name"] = Name;
-            json["gui"] = GUI;
-            json["bg"] = Background;
+            json["bg"] = Background.ToString();
+            json["gui"] = GUI.ToString();
 
             for (int i = 0; i < 4; i++)
             {
-                json["players"].Add(Players[i]);
+                json["players"].Add(Players[i].ToString());
             }
 
             for (int i = 0; i < 9; i++)
             {
-                json["objs"].Add(Objects[i]);
+                json["objs"].Add(Objects[i].ToString());
             }
 
             for (int i = 0; i < 9; i++)
             {
-                json["bgs"].Add(BackgroundObjects[i]);
+                json["bgs"].Add(BackgroundObjects[i].ToString());
             }
 
             return json;
-        }
-
-        public override string ToString()
-        {
-            return ToJson().ToString();
         }
     }
 }

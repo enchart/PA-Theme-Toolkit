@@ -11,31 +11,33 @@ namespace PAThemeToolkit.Test
             Console.WriteLine("Theme creation test");
 
             // Create a new theme
-            Theme theme = new Theme("Full white");
+            Theme theme = new Theme("Full Gray");
 
-            // Set GUI color
-            theme.GUI = "#FFFFFF";
+            // Set GUI color from Hex string
+            theme.GUI = new Color("#7F7F7F");
 
-            // Set background color (RGB)
-            theme.Background = Theme.RGBToHex(255, 255, 255);
+            // Set background color from RGB [0..255]
+            theme.Background = new Color(127, 127, 127);
 
             // Set arrays of colors
-            theme.Players = new string[4];
+            theme.Players = new Color[4];
             for (int i = 0; i < 4; i++)
             {
-                theme.Players[i] = "#FFFFFF";
+                // Set color from RGB [0..1]
+                theme.Players[i] = new Color(0.5f, 0.5f, 0.5f);
             }
 
-            theme.Objects = new string[9];
+            theme.Objects = new Color[9];
             for (int i = 0; i < 9; i++)
             {
-                theme.Objects[i] = "#FFFFFF";
+                // Set color from Hex string (without #)
+                theme.Objects[i] = new Color("7f7f7f");
             }
 
-            theme.BackgroundObjects = new string[9];
+            theme.BackgroundObjects = new Color[9];
             for (int i = 0; i < 9; i++)
             {
-                theme.BackgroundObjects[i] = Theme.RGBToHex(255, 255, 255);
+                theme.BackgroundObjects[i] = new Color("#7f7f7f");
             }
 
             // Export to file
