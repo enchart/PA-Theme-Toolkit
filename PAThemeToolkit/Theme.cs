@@ -113,9 +113,10 @@ namespace PAThemeToolkit
         /// Construct a theme prefab with a JSON object.
         /// </summary>
         /// <param name="json">A JSONNode object.</param>
-        public Theme(JSONNode json)
+        /// <param name="copyID">Copy theme ID from the object</param>
+        public Theme(JSONNode json, bool copyID = false)
         {
-            ID = GenId();
+            ID = copyID ? (string)json["id"] : GenId();
             Name = json["name"];
             Background = new Color(json["bg"]);
             GUI = new Color(json["gui"]);

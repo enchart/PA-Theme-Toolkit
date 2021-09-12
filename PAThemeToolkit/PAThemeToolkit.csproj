@@ -10,6 +10,10 @@
     <Company>enchart</Company>
     <Authors>enchart</Authors>
     <Description>A library for creating and modifying Project Arrhythmia themes.</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/enchart/PA-Theme-Toolkit</RepositoryUrl>
+    <PackageReleaseNotes>Added more flexible colors (thank Reimnop)</PackageReleaseNotes>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
 </Project>
