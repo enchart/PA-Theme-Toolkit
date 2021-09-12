@@ -7,6 +7,8 @@ A library for modifying and creating [Project Arrhythmia](https://store.steampow
  2. Click "Manage NuGet packages"
  3. Search "PAThemeToolkit" and select the first result
  4. Click "Install"
+
+ You can download the package manually on it's [NuGet page](https://www.nuget.org/packages/PAThemeToolkit/).
  
 # Using the library
 ## Creating a theme
