@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PAThemeToolkit", "PAThemeToolkit\PAThemeToolkit.csproj", "{D587549B-2EAC-4D59-99BA-1425D176505D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAThemeToolkit.Test", "PAThemeToolkit.Test\PAThemeToolkit.Test.csproj", "{BE45168D-E409-4CFF-8C09-C356BD119A32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D587549B-2EAC-4D59-99BA-1425D176505D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D587549B-2EAC-4D59-99BA-1425D176505D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D587549B-2EAC-4D59-99BA-1425D176505D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D587549B-2EAC-4D59-99BA-1425D176505D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE45168D-E409-4CFF-8C09-C356BD119A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE45168D-E409-4CFF-8C09-C356BD119A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE45168D-E409-4CFF-8C09-C356BD119A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE45168D-E409-4CFF-8C09-C356BD119A32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DF3D296-982C-4DD0-8525-9E1F0760B370}
+	EndGlobalSection
+EndGlobal
