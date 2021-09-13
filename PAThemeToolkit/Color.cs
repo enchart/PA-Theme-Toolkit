@@ -166,7 +166,7 @@ namespace PAThemeToolkit
 
         public override string ToString()
         {
-            return $"#{RInt:X2}{GInt:X2}{BInt:X2}";
+            return $"{RInt:X2}{GInt:X2}{BInt:X2}";
         }
     }
 }

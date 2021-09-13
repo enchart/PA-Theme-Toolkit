@@ -12,8 +12,8 @@
     <Description>A library for creating and modifying Project Arrhythmia themes.</Description>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/enchart/PA-Theme-Toolkit</RepositoryUrl>
-    <PackageReleaseNotes>Added Int properties for Color components (thanks Reimnop)</PackageReleaseNotes>
-    <Version>1.1.2</Version>
+    <PackageReleaseNotes>Removed "#" from Color.ToString()</PackageReleaseNotes>
+    <Version>1.1.3</Version>
   </PropertyGroup>
 
 </Project>
