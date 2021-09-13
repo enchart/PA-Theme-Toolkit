@@ -58,6 +58,33 @@ namespace PAThemeToolkit
         }
 
         /// <summary>
+        /// R component in range [0..255].
+        /// </summary>
+        public int RInt
+        {
+            get => (int)(r * 255.0f);
+            set => r = value / 255.0f;
+        }
+
+        /// <summary>
+        /// G component in range [0..255].
+        /// </summary>
+        public int GInt
+        {
+            get => (int)(g * 255.0f);
+            set => g = value / 255.0f;
+        }
+
+        /// <summary>
+        /// B component in range [0..255].
+        /// </summary>
+        public int BInt
+        {
+            get => (int)(b * 255.0f);
+            set => b = value / 255.0f;
+        }
+
+        /// <summary>
         /// Constructs the color with values in range [0..1].
         /// </summary>
         /// <param name="r">The red component.</param>
@@ -139,9 +166,7 @@ namespace PAThemeToolkit
 
         public override string ToString()
         {
-            AsRgbInt(out int ri, out int gi, out int bi);
-
-            return $"#{ri:X2}{gi:X2}{bi:X2}";
+            return $"#{RInt:X2}{GInt:X2}{BInt:X2}";
         }
     }
 }
