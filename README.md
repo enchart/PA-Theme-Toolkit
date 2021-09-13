@@ -45,6 +45,12 @@ myColor.R = 0.5f;
 myColor.G = 0.5f;
 myColor.B = 0.5f;
 ```
+Or `int` values:
+```csharp
+myColor.RInt = 127;
+myColor.GInt = 127;
+myColor.BInt = 127;
+```
 
 ## Assigning colors
 A single Project Arrhythmia theme has 24 colors:
