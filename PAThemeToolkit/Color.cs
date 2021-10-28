@@ -164,6 +164,37 @@ namespace PAThemeToolkit
             b = (int)(this.b * 255.0f);
         }
 
+        // Mathematical operators for colors.
+        public static Color operator +(Color a, Color b)
+        {
+            return new Color(a.R + b.R, a.G + b.G, a.B + b.B);
+        }
+
+        public static Color operator -(Color a, Color b)
+        {
+            return new Color(a.R - b.R, a.G - b.G, a.B - b.B);
+        }
+
+        public static Color operator *(Color a, Color b)
+        {
+            return new Color(a.R * b.R, a.G * b.G, a.B * b.B);
+        }
+
+        public static Color operator *(Color a, float b)
+        {
+            return new Color(a.R * b, a.G * b, a.B * b);
+        }
+
+        public static Color operator *(float a, Color b)
+        {
+            return new Color(a * b.R, a * b.G, a * b.B);
+        }
+
+        public static Color operator /(Color a, float b)
+        {
+            return new Color(a.R / b, a.G / b, a.B / b);
+        }
+
         public override string ToString()
         {
             return $"{RInt:X2}{GInt:X2}{BInt:X2}";
